@@ -1,0 +1,263 @@
+/* ====== Reset & Font ====== */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Material+Symbols+Sharp:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+body {
+  background: #fffdf9; 
+  color: #3b2f2f;
+}
+
+/* --- Halaman Utama & Auth --- */
+.page {
+  display: none; 
+}
+
+.page.active {
+  display: flex; 
+}
+
+/* --- Halaman Otentikasi (Login/Register) --- */
+.auth-page {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('food.jpg'); /* Ganti dengan nama file gambar latar belakang Anda */
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  position: absolute;
+  width: 100%;
+  min-height: 100vh;
+  justify-content: center;
+  align-items: center;
+}
+
+/* ====== Kotak Container (Login/Register) ====== */
+.container {
+  max-width: 420px;
+  padding: 28px;
+  background: rgba(255, 250, 243, 0.95);
+  border-radius: 14px;
+  box-shadow: 0 6px 16px rgba(139, 69, 19, 0.15);
+  text-align: center;
+}
+.container input {
+  width: 100%;
+  padding: 12px;
+  margin: 10px 0;
+  border: 1px solid #cbb89d;
+  border-radius: 8px;
+  font-size: 14px;
+  background: #fffdf9;
+}
+.checkbox-group {
+    display: flex;
+    align-items: center;
+    margin: 10px 0;
+    text-align: left;
+    font-size: 14px;
+}
+.container button {
+  width: 100%;
+  padding: 12px;
+  margin-top: 12px;
+  background: #d2691e;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+.container a {
+  color: #d2691e;
+  text-decoration: none;
+}
+
+/* --- Layout Dashboard --- */
+.app-layout {
+  display: none; 
+  grid-template-columns: 250px 1fr;
+  min-height: 100vh;
+  background: #fffdf9;
+}
+.app-layout.active {
+    display: grid;
+}
+
+/* --- Sidebar --- */
+aside {
+  background: #fffaf3;
+  padding: 20px;
+  box-shadow: 2px 0 5px rgba(0,0,0,0.05);
+}
+.sidebar a {
+  display: flex;
+  align-items: center;
+  padding: 10px 15px;
+  margin-bottom: 5px;
+  color: #5a3e2b;
+  text-decoration: none;
+  border-radius: 8px;
+  transition: all 0.3s;
+}
+.sidebar a:hover, .sidebar a.active {
+  background: #ffeac6;
+  color: #d2691e;
+}
+
+/* --- Main Content & Sub-page --- */
+main {
+    padding: 30px;
+}
+.sub-page {
+    display: none; 
+}
+.sub-page.active {
+    display: block;
+}
+main h1 {
+    margin-bottom: 25px;
+    color: #d2691e;
+    font-size: 28px;
+}
+
+/* --- Kuliner List & Card --- */
+.kuliner-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
+}
+.card {
+  background: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+  text-align: center;
+}
+.card button {
+    margin-top: 10px;
+    padding: 8px 12px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 14px;
+}
+.card button.detailBtn {
+  background: #ff9800;
+  color: #fff;
+  margin-right: 5px;
+}
+.card button.favBtn {
+  background: #4caf50;
+  color: #fff;
+}
+.card button.remove {
+  background: #e53935;
+}
+
+/* --- Gaya Form Tambah Kuliner (Layout Grid 2 Kolom) --- */
+.add-form-layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr; 
+    gap: 20px; 
+    max-width: 800px; 
+    padding: 20px;
+    background: #fffaf3;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+}
+
+.add-form-layout label,
+.add-form-layout input,
+.add-form-layout textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #cbb89d;
+    border-radius: 8px;
+    font-size: 14px;
+    background: #fff;
+}
+.add-form-layout label {
+    padding: 12px;
+    background: #fffaf3;
+    border: none;
+    text-align: left;
+    color: #3b2f2f;
+    font-weight: 500;
+}
+
+/* Membuat Textarea dan Tombol membentang penuh 2 kolom */
+.add-form-layout textarea {
+    grid-column: 1 / span 2; 
+    min-height: 150px;
+}
+.add-form-layout button {
+    grid-column: 1 / span 2;
+    padding: 12px;
+    background: #4caf50;
+    color: #fff;
+    font-size: 16px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+/* --- Modal Resep & Gambar CSS Variable --- */
+.modal {
+  display: none;
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(0,0,0,0.6);
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+.modal-content {
+  background: #fffaf3;
+  padding: 30px;
+  border-radius: 10px;
+  max-width: 800px;
+  width: 90%;
+  max-height: 90%;
+  overflow-y: auto;
+}
+.close {
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    color: #aaa;
+}
+.close:hover,
+.close:focus {
+    color: #d2691e;
+    text-decoration: none;
+    cursor: pointer;
+}
+#modalContentWrapper {
+    display: flex;
+    gap: 30px;
+}
+#modalTextContent {
+    flex: 2; 
+}
+#modalImageContainer {
+    flex: 1; 
+    min-width: 200px;
+    text-align: center;
+}
+
+#modalImageCSS {
+    width: 100%;
+    max-height: 300px; 
+    aspect-ratio: 1 / 1; 
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    background-image: var(--bg-url, url('placeholder.jpg')); 
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
